@@ -25,6 +25,7 @@ import Questions from '../components/Questions';
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Tag } from 'lucide-react';
+import Modal from '../components/Modal';
 
 export default function Home() {
   const [day, setDay] = useState('sameDay');
@@ -86,7 +87,6 @@ export default function Home() {
         <meta name="twitter:creator" content="@AdManage" />
         <meta name="twitter:description" content="Ton tem as maquininhas com as menores taxas do Brasil, o TapTon para vender pelo celular e Super Conta digital pra fazer pagamentos, tudo em um único lugar!" />
       </Head>
-
       <main className="w-full h-full bg-person-primary">
         {coupon && (
           <div className="bg-yellow-400 flex items-center justify-center p-4 font-semibold">
@@ -99,6 +99,15 @@ export default function Home() {
           <BannerAnimation />
         </div>
         <Benefits />
+        <div className="w-100 bg-person-tertiary">
+          <div className="py-10 flex flex-col max-w-[780px] mx-auto justify-center items-center gap-10">
+            <Title title={(<span>Já viu que o Ton é o <span className="text-ton-200">Parceira ideal para quem tá no corre</span>, né? E aí, partiu vender mais?</span>)} />
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 w-full px-10 md:px-0">
+              <a className="w-full md:w-64 p-5 cursor-pointer hover:bg-ton-300 hover:text-white transition-colors w-full text-center font-ton text-ton-400 py-3 my-0 md:my-4 rounded-full bg-ton-200 font-bold" href='#planos'>Escolha seu plano</a>
+              <Modal />
+            </div>
+          </div>
+        </div>
         <Plans day={day} setDay={setDay} selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} plans={plans} />
         <Machines percentcoupon={percentcoupon} url={url} referrer={referrer} coupon={coupon} day={day} setDay={setDay} selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} plans={plans} machines={machines} prices={prices} />
         <Calculator plans={taxCalculator} />

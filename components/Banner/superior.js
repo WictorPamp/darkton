@@ -11,14 +11,27 @@ export default function Superior() {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2024-11-13T00:00:00").getTime();
+    // Função para calcular a próxima terça-feira
+    const getNextTuesday = () => {
+      const now = new Date();
+      const dayOfWeek = now.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+      const daysUntilTuesday = (3 - dayOfWeek + 7) % 7 || 7; // Calcula os dias até a próxima terça-feira
+      const nextTuesday = new Date(now);
+      nextTuesday.setDate(now.getDate() + daysUntilTuesday);
+      nextTuesday.setHours(0, 0, 0, 0); // Define para meia-noite de terça-feira
+      return nextTuesday.getTime();
+    };
+
+    const targetDate = getNextTuesday();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
       const difference = targetDate - now;
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
