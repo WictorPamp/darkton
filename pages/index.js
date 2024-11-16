@@ -26,6 +26,7 @@ import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Tag } from 'lucide-react';
 import Modal from '../components/Modal';
+import { supabase } from '../utils/supabase/server';
 
 export default function Home() {
   const [day, setDay] = useState('sameDay');
@@ -59,7 +60,7 @@ export default function Home() {
   useEffect(() => {
     const url = `https://ton.admanager.com.br${pathname}`;
     setUrl(url);
-  }, [pathname, searchParams])
+  }, [pathname, searchParams]);
   return (
     <div>
       <Head>
@@ -94,6 +95,7 @@ export default function Home() {
           </div>
         )}
         <Superior />
+        {site.link}
         <div>
           <Capa url={url} referrer={referrer} coupon={coupon} />
           <BannerAnimation />
