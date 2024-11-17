@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  :root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-gray-100 text-gray-800 min-h-screen flex flex-col relative scroll-smooth;
+  }
+}
+
+@font-face {
+  font-family: 'ton';
+  src: url('../app/fonts/TonCondensed.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+.banner-item {
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
