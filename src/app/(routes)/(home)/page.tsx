@@ -57,7 +57,7 @@ export default async function HomePage() {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="language" content="pt-BR" />
         <title>Maquininha TON</title>
         <link type="image/png" rel="icon" href="/oton1.png" />
