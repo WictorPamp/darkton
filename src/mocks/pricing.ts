@@ -39,6 +39,13 @@ export const pricing: Pricing = [
   },
   {
     key: 'tonTap',
-    machines: [{ key: 'TapTon', promotion: 'free' }],
+    machines: [
+      {
+        key: 'TapTon',
+        promotion: 'free',
+        current: 0,
+        parcel: 0,
+      },
+    ],
   },
 ];

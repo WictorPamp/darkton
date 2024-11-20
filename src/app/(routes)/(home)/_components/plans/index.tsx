@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-
 import { Title } from '../title';
 
 import { OptionReceived } from './option-received';
@@ -11,12 +9,19 @@ import { Plan } from '@/types/plans';
 
 interface PlansProps {
   plans: Plan[];
+  day: string;
+  setDay: (day: string) => void;
+  selectedPlan: string;
+  setSelectedPlan: (plan: string) => void;
 }
 
-export function Plans({ plans }: PlansProps) {
-  const [day, setDay] = useState('sameDay');
-  const [selectedPlan, setSelectedPlan] = useState('tonMega');
-
+export function Plans({
+  plans,
+  day,
+  setDay,
+  selectedPlan,
+  setSelectedPlan,
+}: PlansProps) {
   return (
     <section
       id="planos"
@@ -28,16 +33,18 @@ export function Plans({ plans }: PlansProps) {
         <OptionReceived day={day} setDay={setDay} />
 
         <div className="grid grid-cols-1 sm:grid-col-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1280px] gap-2 p-3">
-          {plans.map((plan) => (
-            <PlanCard
-              key={plan.key}
-              plan={plan}
-              planIndex={plan.key}
-              day={day}
-              selectedPlan={selectedPlan}
-              setSelectedPlan={setSelectedPlan}
-            />
-          ))}
+          {plans.map((plan) => {
+            return (
+              <PlanCard
+                key={plan.id}
+                plan={plan}
+                planIndex={plan.key}
+                day={day}
+                selectedPlan={selectedPlan}
+                setSelectedPlan={setSelectedPlan}
+              />
+            );
+          })}
         </div>
       </div>
 

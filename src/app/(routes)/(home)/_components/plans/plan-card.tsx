@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 import { Plan, PlanRates } from '@/types/plans';
@@ -7,7 +9,7 @@ interface PlanCardProps {
   planIndex: string;
   day: string;
   selectedPlan: string;
-  setSelectedPlan: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedPlan: (selectedPlan: string) => void;
 }
 
 export function PlanCard({

@@ -7,6 +7,8 @@ export interface PricingMachine {
 
 export interface PricingLevel {
   key: string;
+  planTitle: string;
+  planName: string;
   machines: PricingMachine[];
 }
 

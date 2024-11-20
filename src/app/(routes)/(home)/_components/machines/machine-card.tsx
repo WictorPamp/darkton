@@ -18,22 +18,26 @@ import { PricingMachine } from '@/types/pricing';
 
 interface MachineCardProps {
   machine: Machine;
-  plan: Plan;
+  selectedPlan: string;
   pricing: PricingMachine | undefined;
   day: string;
   coupon: string;
   percentCoupon: number;
-  referrer: boolean;
+  referrer: string;
+  type: string;
+  userTag: string;
 }
 
 export function MachineCard({
   machine,
-  plan,
+  selectedPlan,
   pricing,
   day,
   coupon,
   percentCoupon,
   referrer,
+  type,
+  userTag,
 }: MachineCardProps) {
   function formatCurrency(value: number) {
     return new Intl.NumberFormat('pt-BR', {
@@ -59,13 +63,14 @@ export function MachineCard({
   );
 
   const link = `https://www.ton.com.br/checkout/cart/?${
-    referrer ? `referrer=${referrer}` : ''
-  }${
-    coupon ? `coupon=${coupon}` : ''
-  }&utm_medium=invite_share&utm_source=revendedor&userTag=${
-    plan.userTag
-  }&productId=${plan.product}&userAnticipation=${day === 'sameDay' ? 0 : 1}`;
-
+    type === 'referrer'
+      ? `referrer=${referrer}`
+      : type === 'link'
+      ? `coupon=${coupon}`
+      : ''
+  }&utm_medium=invite_share&utm_source=revendedor&userTag=${userTag}&productId=${`${userTag.toUpperCase()}_${
+    machine.id
+  }`}&userAnticipation=${day === 'sameDay' ? 0 : 1}`;
   return (
     <div className="text-person-secondary bg-person-primary p-4 rounded-lg shadow-lg my-4 lg:my-0 max-w-[308px]">
       <div className="flex items-end mr-4 ml-4 rounded rounded-b-none">
@@ -95,7 +100,7 @@ export function MachineCard({
       <div className="px-4">
         <div className="flex justify-between items-center min-w max-w">
           <h3 className="text-2xl font-ton font-bold leading-[36px]">
-            {machine.title} <span className="font-light">{plan.title}</span>
+            {machine.title} <span className="font-light"></span>
           </h3>
         </div>
 
@@ -133,7 +138,7 @@ export function MachineCard({
             className="cursor-pointer hover:bg-ton-300 transition-colors w-full text-center font-ton text-person-secondary py-3 my-4 rounded-full bg-ton-200 font-bold"
           >
             Pedir {machine.title}
-            <span className="font-normal">{plan.title}</span>
+            <span className="font-normal"></span>
           </a>
         </div>
       </div>

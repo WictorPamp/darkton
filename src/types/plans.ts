@@ -5,6 +5,7 @@ export interface PlanRates {
 }
 
 export interface Plan {
+  id: string;
   key: string;
   userTag: string;
   product: string;

@@ -1,3 +1,5 @@
+'use client';
+
 import { ClockArrowDown, ClockArrowUp } from 'lucide-react';
 import Image from 'next/image';
 
@@ -5,7 +7,7 @@ import travesso from '@/app/assets/images/travesso.png';
 
 interface OptionReceivedProps {
   day: string;
-  setDay: React.Dispatch<React.SetStateAction<string>>;
+  setDay: (day: string) => void;
 }
 
 export function OptionReceived({ setDay, day }: OptionReceivedProps) {

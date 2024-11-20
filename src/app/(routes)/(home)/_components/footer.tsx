@@ -2,12 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ibest from '@/app/assets/images/ibest_e97bd89878.webp';
-import logoWhite from '@/app/assets/images/logos/aton1.png';
 import mobile from '@/app/assets/images/mobile_time_00fca44e3f.webp';
 import ra from '@/app/assets/images/ra1000_96e67fe97d.webp';
-import whats from '@/app/assets/images/whatsapp.png';
 
-export function Footer() {
+interface FooterProps {
+  logo: string;
+}
+
+export function Footer({ logo }: FooterProps) {
   const tel = 5511984407266;
 
   return (
@@ -15,11 +17,7 @@ export function Footer() {
       <div className="flex flex-col w-full max-w-[1080px]">
         <div className="flex justify-between w-full">
           <div>
-            <Image src={logoWhite} alt="Logo Parceira Ton" width={54} />
-          </div>
-
-          <div className="items-end">
-            <Image src={whats} alt="Logo Parceira Ton" width={30} />
+            <Image src={logo} alt="Logo Parceira Ton" width={54} height={54} />
           </div>
         </div>
 

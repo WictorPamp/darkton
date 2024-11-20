@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import logo from '@/app/assets/images/logos/aton3.png';
+interface TopCountdownProps {
+  logo: string;
+}
 
-export function TopCountdown() {
+export function TopCountdown({ logo }: TopCountdownProps) {
   const [remainingTime, setRemainingTime] = useState({
     days: 0,
     hours: 0,
@@ -52,7 +54,7 @@ export function TopCountdown() {
   return (
     <div className="flex gap-8 md:gap-16 justify-center items-center p-2 md:px-4 w-full bg-ton-200 text-white font-ton">
       <div>
-        <Image src={logo} alt="Parceiro Ton" width={54} />
+        <Image src={logo} alt="Parceiro Ton" width={54} height={54} />
       </div>
 
       <div className="p-2 md:p-2 text-center bg-ton-300 rounded-[8px]">

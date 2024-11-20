@@ -2,9 +2,14 @@ import { questions } from '@/mocks/questions';
 
 import { Title } from '../title';
 
+import { QuestionType } from '@/types/questions';
 import { Question } from './question';
 
-export function Questions() {
+interface QuestionsProps {
+  questions: QuestionType[];
+}
+
+export function Questions({ questions }: QuestionsProps) {
   return (
     <section
       id="planos"
@@ -17,7 +22,7 @@ export function Questions() {
           <div className="w-full flex flex-col gap-4 md:gap-8 p-4 md:p-0">
             {questions.map((question, index) => (
               <Question
-                key={`question-${index}`}
+                key={`question-${question.id}`}
                 question={question.question}
                 answer={question.answer}
               />
