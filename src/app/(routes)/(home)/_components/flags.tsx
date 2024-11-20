@@ -39,7 +39,7 @@ export function Flags() {
     <div className="py-10 mt-8 flex flex-col justify-center items-center">
       <Title>Aceite as principais formas de pagamento</Title>
 
-      <div className="bg-person-secondary rounded-full z-0 p-4 mt-4 overflow-hidden w-full max-w-[500px]">
+      <div className="dark:bg-person-secondary rounded-full z-0 p-4 mt-4 overflow-hidden w-full max-w-[500px]">
         <div className="z-0 flex animate-slide-left-5 w-[100%] gap-8">
           {flagNames.map((flag, index) => (
             <Image

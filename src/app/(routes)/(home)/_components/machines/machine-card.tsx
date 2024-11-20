@@ -13,7 +13,6 @@ import {
 import Image from 'next/image';
 
 import { Machine } from '@/types/machines';
-import { Plan } from '@/types/plans';
 import { PricingMachine } from '@/types/pricing';
 
 interface MachineCardProps {
@@ -72,7 +71,7 @@ export function MachineCard({
     machine.id
   }`}&userAnticipation=${day === 'sameDay' ? 0 : 1}`;
   return (
-    <div className="text-person-secondary bg-person-primary p-4 rounded-lg shadow-lg my-4 lg:my-0 max-w-[308px]">
+    <div className="text-ton-gray dark:text-person-secondary bg-white dark:bg-person-primary p-4 rounded-lg shadow-lg my-4 lg:my-0 max-w-[308px]">
       <div className="flex items-end mr-4 ml-4 rounded rounded-b-none">
         <div className="mb-4">
           <Image
@@ -124,7 +123,9 @@ export function MachineCard({
 
             <div className="flex gap-0 justify-end my-auto ml-auto font-ton font-bold text-ton-200">
               <div className="self-end text-right">
-                <p className="leading-none text-person-secondary">12x</p>
+                <p className="leading-none text-ton-gray dark:text-person-secondary">
+                  12x
+                </p>
                 <p className="mt-2 leading-none">R$</p>
               </div>
               <p className="self-end text-7xl">{parcel.integer}</p>
@@ -147,7 +148,7 @@ export function MachineCard({
         <div className="flex-1 p-5 mt-auto">
           <ul className="flex flex-col">
             {machine.frete && (
-              <li className="flex items-center mt-4 first:mt-0 list-none text-ton-100">
+              <li className="flex items-center mt-4 first:mt-0 list-none text-ton-300 dark:text-ton-100">
                 <Truck className="flex-shrink-0 w-6 h-6" />
                 <p className="ml-4 font-medium text-sm">
                   Frete e troca grátis pra todo o Brasil

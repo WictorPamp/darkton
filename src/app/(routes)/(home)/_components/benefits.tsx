@@ -4,7 +4,7 @@ import { Card } from './card';
 
 export function Benefits() {
   return (
-    <section className="bg-person-primary text-person-secondary flex flex-col gap-0 justify-center items-center md:items-stretch lg:items-center rounded-b-md">
+    <section className="text-ton-gray dark:bg-person-primary dark:text-person-secondary flex flex-col gap-0 justify-center items-center md:items-stretch lg:items-center rounded-b-md">
       <div className="flex flex-wrap md:flex-nowrap gap-4 xl:gap-4 md:justify-evenly m-4 md:m-8 lg:mb-8 max-w-[512px] md:max-w-[1280px]">
         <Card
           icon={HandCoins}

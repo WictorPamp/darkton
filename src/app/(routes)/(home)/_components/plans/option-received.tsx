@@ -15,7 +15,7 @@ export function OptionReceived({ setDay, day }: OptionReceivedProps) {
     <div className="flex flex-col gap-2">
       <div className="flex flex-wrap gap-4 justify-center items-center w-full">
         <div className="flex">
-          <p className="text-person-secondary font-medium ">
+          <p className="text-ton-gray dark:text-person-secondary font-medium ">
             Recebimento da venda
           </p>
         </div>

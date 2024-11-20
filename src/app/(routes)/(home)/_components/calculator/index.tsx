@@ -71,12 +71,15 @@ export function Calculator({ plans }: CalculatorProps) {
   const save = calculateSave(value, tax);
 
   return (
-    <section className="pt-18 py-10 bg-person-tertiary" id="planos">
+    <section
+      className="pt-18 py-10 bg-white dark:bg-person-tertiary"
+      id="planos"
+    >
       <div className="flex flex-col gap-4 md:gap-8 items-center">
         <Title>Simule as taxas das suas vendas</Title>
 
         <div className="flex flex-col md:flex-row w-full md:px-20 max-w-[1080px]">
-          <div className="md:border-r-[1px] md:border-person-quaternary text-person-secondary flex-1 md:rounded-l-lg p-4">
+          <div className="md:border-r-[1px] md:border-person-quaternary text-ton-gray dark:text-person-secondary flex-1 md:rounded-l-lg p-4">
             <div className="flex flex-col gap-4">
               <p className="font-semibold">Selecione seu Plano Ton:</p>
               <div className="flex">
@@ -151,7 +154,7 @@ export function Calculator({ plans }: CalculatorProps) {
                     fixedDecimalScale={true}
                     onValueChange={handleValueChange}
                     alt="Valor em reais"
-                    className="bg-person-primary border-gray-700 md:px-4 w-full border inline-flex rounded px-4 py-2 text-white font-semibold text-sm shadow-sm focus:outline-none focus:border-ton-300"
+                    className="dark:bg-person-primary border-gray-700 md:px-4 w-full border inline-flex rounded px-4 py-2 text-ton-gray dark:text-white font-semibold text-sm shadow-sm focus:outline-none focus:border-ton-300"
                   />
                 </div>
               </div>
@@ -160,7 +163,7 @@ export function Calculator({ plans }: CalculatorProps) {
 
           <hr className="md:hidden" />
 
-          <div className="text-person-secondary flex-1 flex flex-col md:rounded-r-lg p-4 justify-center">
+          <div className="text-ton dark:text-person-secondary flex-1 flex flex-col md:rounded-r-lg p-4 justify-center">
             <div className="flex justify-between p-4">
               <p className="font-semibold">Você recebe</p>
               <p className="text-lg text-ton-200 font-ton font-semibold">
@@ -204,7 +207,7 @@ export function Calculator({ plans }: CalculatorProps) {
               </p>
             </div>
 
-            <div className="flex justify-between items-center m-4 bg-person-primary p-4 text-white rounded-md">
+            <div className="flex justify-between items-center m-4 dark:bg-person-primary p-4 text-ton-gray dark:text-white rounded-md">
               <div className="flex gap-2 items-center">
                 <PiggyBank size={24} />
                 <p className="font-semibold">Economize</p>

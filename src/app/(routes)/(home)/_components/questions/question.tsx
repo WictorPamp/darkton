@@ -12,7 +12,7 @@ export function Question({ question, answer }: QuestionProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-person-tertiary text-person-secondary justify-center flex flex-col rounded-lg shadow gap-4 w-full">
+    <div className="bg-white dark:bg-person-tertiary text-ton-gray dark:text-person-secondary justify-center flex flex-col rounded-lg shadow gap-4 w-full">
       <div
         className={`flex justify-between cursor-pointer py-5 px-10 ${
           isOpen && 'pb-0'
@@ -23,7 +23,7 @@ export function Question({ question, answer }: QuestionProps) {
         {isOpen ? <ChevronUp /> : <ChevronDown />}
       </div>
 
-      {isOpen && <hr className="border-person-primary" />}
+      {isOpen && <hr className="border-gray-200 dark:border-person-primary" />}
 
       <div
         className={`whitespace-pre-line transition-all px-10 py-2 ${

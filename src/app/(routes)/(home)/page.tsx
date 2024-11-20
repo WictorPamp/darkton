@@ -1,29 +1,32 @@
+import Head from 'next/head';
+
+import { getMachines } from '@/actions/fetch-machines';
+import { getPlans } from '@/actions/fetch-plans';
+import { getPrices } from '@/actions/fetch-prices';
+import { getQuestions } from '@/actions/fetch-questions';
+import { getSiteInfo } from '@/actions/fetch-site';
+
 import { calculator } from '@/mocks/calculator';
 
-import { Benefits } from './_components/benefits';
-import { Calculator } from './_components/calculator';
-import { CallToAction } from './_components/call-to-action';
-import { ConsultantModal } from './_components/consultant-modal';
-import { Cover } from './_components/cover';
-import { Different } from './_components/different';
-import { Flags } from './_components/flags';
-import { Questions } from './_components/questions';
+import { Machine } from '@/types/machines';
+import { Plan } from '@/types/plans';
+import { PricingLevel } from '@/types/pricing';
+import { QuestionType } from '@/types/questions';
 
 import { BannerAnimation } from './_components/banners/banners-animation';
 import { CouponBanner } from './_components/banners/coupon-banner';
 import { TopCountdown } from './_components/banners/top-countdown';
-import { Footer } from './_components/footer';
-import { getSiteInfo } from '@/actions/fetch-site';
-import { getPlans } from '@/actions/fetch-plans';
-import { Plan } from '@/types/plans';
+import { Benefits } from './_components/benefits';
+import { Calculator } from './_components/calculator';
+import { CallToAction } from './_components/call-to-action';
 import { ClientComponent } from './_components/client-component';
-import { getMachines } from '@/actions/fetch-machines';
-import { Machine } from '@/types/machines';
-import { PricingLevel } from '@/types/pricing';
-import { getPrices } from '@/actions/fetch-prices';
-import { getQuestions } from '@/actions/fetch-questions';
-import { QuestionType } from '@/types/questions';
-import Head from 'next/head';
+import { ConsultantModal } from './_components/consultant-modal';
+import { Cover } from './_components/cover';
+import { Different } from './_components/different';
+import { Flags } from './_components/flags';
+import { Footer } from './_components/footer';
+import { Questions } from './_components/questions';
+import { ThemeToggle } from './_components/theme-toggle';
 
 interface Infos {
   id: string;
@@ -53,7 +56,9 @@ export default async function HomePage() {
   const pricing: PricingLevel[] = await getPrices();
 
   const questions: QuestionType[] = await getQuestions(infos.id);
+
   if (infos.active !== true) return 'Site inactive.';
+
   return (
     <>
       <Head>
@@ -98,12 +103,15 @@ export default async function HomePage() {
           content="Ton tem as maquininhas com as menores taxas do Brasil, o TapTon para vender pelo celular e Super Conta digital pra fazer pagamentos, tudo em um único lugar!"
         />
       </Head>
+
+      <ThemeToggle />
+
       <header>
         <CouponBanner coupon={coupon} percent={percentCoupon} />
         <TopCountdown logo={`/assets/logos/white/${infos.logo}`} />
       </header>
 
-      <main className="bg-person-primary">
+      <main className="dark:bg-person-primary">
         <div>
           <Cover referrer={referrer} coupon={coupon} />
 

@@ -6,7 +6,6 @@ import { Pricing } from '@/types/pricing';
 import { Title } from '../title';
 
 import { MachineCard } from './machine-card';
-import { Plan } from '@/types/plans';
 
 interface MachinesProps {
   selectedPlan: string;
@@ -35,7 +34,7 @@ export function Machines({
 
   return (
     <section
-      className="mt-8 bg-person-tertiary py-10 border-b-[1px] border-person-quaternary"
+      className="mt-8 dark:bg-person-tertiary py-10 border-b-[1px] border-gray-200 dark:border-person-quaternary"
       id="planos"
     >
       <div className="flex flex-col gap-4 md:gap-8 items-center">

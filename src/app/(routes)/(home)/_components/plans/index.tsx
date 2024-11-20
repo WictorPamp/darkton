@@ -10,16 +10,16 @@ import { Plan } from '@/types/plans';
 interface PlansProps {
   plans: Plan[];
   day: string;
-  setDay: (day: string) => void;
   selectedPlan: string;
+  setDay: (day: string) => void;
   setSelectedPlan: (plan: string) => void;
 }
 
 export function Plans({
   plans,
   day,
-  setDay,
   selectedPlan,
+  setDay,
   setSelectedPlan,
 }: PlansProps) {
   return (
@@ -48,11 +48,11 @@ export function Plans({
         </div>
       </div>
 
-      <div className="text-person-secondary flex flex-col gap-0 px-5">
+      <div className="text-ton-gray dark:text-person-secondary flex flex-col gap-0 px-5">
         <p className="text-center">
           Confira as{' '}
           <a
-            className="underline text-ton-100"
+            className="underline text-ton-300 dark:text-ton-100"
             href="https://www.ton.com.br/planos-e-taxas/?referrer=1E2EC3CE-6F5F-485F-A96B-1C5918F667A7&utm_medium=invite_share&utm_source=revendedor"
           >
             taxas de todos os planos

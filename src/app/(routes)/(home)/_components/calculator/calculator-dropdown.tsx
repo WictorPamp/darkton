@@ -21,7 +21,7 @@ export function CalculatorDropdown<T extends string | number>({
       <button
         onClick={() => setIsOpen(!isOpen)}
         type="button"
-        className="inline-flex w-full justify-between rounded-md border bg-person-primary border-gray-700 px-4 py-2 text-person- font-semibold text-sm shadow-sm hover:border-ton-300 focus:outline-none focus:ring-2 focus:ring-ton-300"
+        className="inline-flex w-full justify-between rounded-md border dark:bg-person-primary border-gray-700 px-4 py-2 text-person- font-semibold text-sm shadow-sm hover:border-ton-300 focus:outline-none focus:ring-2 focus:ring-ton-300"
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"

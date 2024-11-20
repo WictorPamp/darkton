@@ -46,7 +46,7 @@ export function Different() {
   ];
 
   return (
-    <section className="mt-8 bg-person-tertiary border-b border-person-quaternary py-10">
+    <section className="mt-8 dark:bg-person-tertiary border-b border-gray-200 dark:border-person-quaternary py-10">
       <div className="flex flex-col gap-4 md:gap-8 items-center">
         <Title>
           <span>

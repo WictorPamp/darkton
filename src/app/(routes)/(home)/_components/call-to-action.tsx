@@ -2,7 +2,7 @@ import { Title } from './title';
 
 export function CallToAction({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-100 bg-person-tertiary">
+    <div className="w-100 bg-white dark:bg-person-tertiary">
       <div className="py-10 flex flex-col max-w-[780px] mx-auto justify-center items-center gap-10">
         <Title>
           <p className="text-center">
