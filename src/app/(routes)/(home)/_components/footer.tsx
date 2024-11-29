@@ -13,7 +13,7 @@ export function Footer({ logo }: FooterProps) {
   const tel = 5511984407266;
 
   return (
-    <footer className="dark:bg-person-tertiary flex p-10 text-ton-gray dark:text-white justify-center">
+    <footer className="bg-person-tertiary flex p-10 text-white justify-center">
       <div className="flex flex-col w-full max-w-[1080px]">
         <div className="flex justify-between w-full">
           <div>

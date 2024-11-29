@@ -182,7 +182,7 @@ export function Calculator({ plans }: CalculatorProps) {
                   </span>
                 </p>
 
-                <p className="text-gray-500 text-sm">
+                <p className="text-gray-500 dark:text-gray-200 text-sm">
                   Taxas após período promocional de acordo com suas vendas
                   mensais
                 </p>

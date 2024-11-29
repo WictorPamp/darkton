@@ -20,7 +20,7 @@ export function OptionReceived({ setDay, day }: OptionReceivedProps) {
           </p>
         </div>
 
-        <div className="flex gap-2 p-2 bg-ton-gray2 rounded-3xl">
+        <div className="flex gap-2 p-2 bg-white dark:bg-ton-gray2 rounded-3xl">
           <button
             onClick={() => setDay('oneDay')}
             className={`flex gap-2 items-center p-2 cursor-pointer text-base rounded-3xl ${

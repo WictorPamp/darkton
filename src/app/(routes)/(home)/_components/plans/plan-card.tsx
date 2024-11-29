@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 
+import { cn } from '@/lib/utils';
 import { Plan, PlanRates } from '@/types/plans';
 
 interface PlanCardProps {
@@ -19,14 +20,23 @@ export function PlanCard({
   selectedPlan,
   setSelectedPlan,
 }: PlanCardProps) {
+  const planBg = plan.background;
+  const planBorderColor = plan.borderColor;
+  const planTextColor = plan.color;
+
   return (
     <label
       onClick={() => setSelectedPlan(planIndex)}
-      className={`flex overflow-hidden flex-col rounded-2xl border cursor-pointer text-center border-${plan.borderColor}`}
+      className={`flex overflow-hidden flex-col rounded-2xl border cursor-pointer text-center border-${planBorderColor}`}
     >
       <div className="flex flex-col h-full cursor-pointer">
         <div
-          className={`bg-${plan.background} text-${plan.color} flex flex-col gap-3 py-4 h-full justify-between`}
+          className={cn(
+            'flex flex-col gap-3 py-4 h-full justify-between',
+            planBg === 'person-primary' &&
+              `dark:bg-${planBg} dark:text-${planTextColor}`,
+            planBg !== 'person-primary' && 'bg-white text-ton-gray',
+          )}
         >
           <div className="flex gap-2 px-4">
             <div className="w-full text-left">

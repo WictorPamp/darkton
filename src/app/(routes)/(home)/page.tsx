@@ -26,7 +26,6 @@ import { Different } from './_components/different';
 import { Flags } from './_components/flags';
 import { Footer } from './_components/footer';
 import { Questions } from './_components/questions';
-import { ThemeToggle } from './_components/theme-toggle';
 
 interface Infos {
   id: string;
@@ -103,8 +102,6 @@ export default async function HomePage() {
           content="Ton tem as maquininhas com as menores taxas do Brasil, o TapTon para vender pelo celular e Super Conta digital pra fazer pagamentos, tudo em um único lugar!"
         />
       </Head>
-
-      <ThemeToggle />
 
       <header>
         <CouponBanner coupon={coupon} percent={percentCoupon} />
