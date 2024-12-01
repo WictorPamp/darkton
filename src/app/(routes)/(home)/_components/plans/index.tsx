@@ -1,5 +1,3 @@
-'use client';
-
 import { Title } from '../title';
 
 import { OptionReceived } from './option-received';

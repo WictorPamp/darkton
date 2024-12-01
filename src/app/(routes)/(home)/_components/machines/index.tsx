@@ -34,7 +34,7 @@ export function Machines({
 
   return (
     <section
-      className="mt-8 dark:bg-person-tertiary py-10 border-b-[1px] border-gray-200 dark:border-person-quaternary"
+      className="mt-8 dark:bg-person-primary py-10 border-t border-gray-200 dark:border-person-quaternary"
       id="planos"
     >
       <div className="flex flex-col gap-4 md:gap-8 items-center">

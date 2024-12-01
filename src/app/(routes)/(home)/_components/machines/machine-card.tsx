@@ -71,7 +71,7 @@ export function MachineCard({
     machine.id
   }`}&userAnticipation=${day === 'sameDay' ? 0 : 1}`;
   return (
-    <div className="text-ton-gray dark:text-person-secondary bg-white dark:bg-person-primary p-4 rounded-lg shadow-lg my-4 lg:my-0 max-w-[308px]">
+    <div className="text-ton-gray dark:text-person-secondary bg-white dark:bg-person-primary border border-gray-200 dark:border-person-quaternary p-4 rounded-lg shadow-lg my-4 lg:my-0 max-w-[308px]">
       <div className="flex items-end mr-4 ml-4 rounded rounded-b-none">
         <div className="mb-4">
           <Image

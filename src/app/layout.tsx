@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
 import { Inter } from 'next/font/google';
+
+import { Providers } from '@/providers';
 
 import './globals.css';
 
@@ -20,14 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          enableColorScheme={false}
-        >
-          {children}
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

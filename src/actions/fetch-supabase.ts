@@ -2,21 +2,25 @@
 
 import { supabase } from '@/lib/client';
 
-interface fetchSupabaseProps {
+interface FetchSupabaseProps {
   tableName: string;
-  columns?: string;
+  columns?: string | string[];
   where?: Record<string, any>;
-  relationships?: string; // Novo parâmetro para especificar relacionamentos
+  relationships?: string;
 }
 
-export async function fetchSupabase({
+export async function fetchSupabase<T>({
   tableName,
   columns,
   where,
   relationships,
-}: fetchSupabaseProps) {
+}: FetchSupabaseProps): Promise<T[]> {
   const selectColumns = relationships
-    ? `${columns || '*'}, ${relationships}`
+    ? `${
+        Array.isArray(columns) ? columns.join(', ') : columns || '*'
+      }, ${relationships}`
+    : Array.isArray(columns)
+    ? columns.join(', ')
     : columns || '*';
 
   let query = supabase.from(tableName).select(selectColumns);
@@ -33,5 +37,5 @@ export async function fetchSupabase({
     throw new Error(`Error fetching data from ${tableName}: ${error.message}`);
   }
 
-  return data;
+  return data as T[];
 }
