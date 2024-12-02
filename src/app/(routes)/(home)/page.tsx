@@ -27,19 +27,6 @@ import { Flags } from './_components/flags';
 import { Footer } from './_components/footer';
 import { Questions } from './_components/questions';
 
-interface Infos {
-  id: string;
-  link: string;
-  cupon: string;
-  referrer: string;
-  type: string;
-  tap_ton: boolean;
-  active: boolean;
-  percent_coupon: number;
-  telephone: string;
-  logo: string;
-}
-
 export default async function HomePage() {
   const infos = await getSiteInfo();
 

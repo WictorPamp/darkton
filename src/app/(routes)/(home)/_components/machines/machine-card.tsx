@@ -34,12 +34,7 @@ export function MachineCard({
   site,
   machine,
   pricing,
-  day,
-  coupon,
   percentCoupon,
-  referrer,
-  type,
-  userTag,
   planTitle,
 }: MachineCardProps) {
   function formatCurrency(value: number) {
