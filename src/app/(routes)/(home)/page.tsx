@@ -122,6 +122,7 @@ export default async function HomePage() {
         </CallToAction>
 
         <ClientComponent
+          site={infos.id}
           initialDay="oneDay"
           initialSelectedPlan="tonMega"
           plans={plans}

@@ -6,18 +6,16 @@ import { useEffect, useState } from 'react';
 import { getTheme } from '@/actions/fetch-themes';
 
 import { LaunchScreen } from '@/components/launch-screen';
+import { getSiteInfo } from '@/actions/fetch-site';
 
 interface ProvidersProps {
   children: React.ReactNode;
 }
-
 export function Providers({ children }: ProvidersProps) {
   const [theme, setTheme] = useState<string | undefined>(undefined);
-
   useEffect(() => {
     const fetchTheme = async () => {
-      const fetchedTheme = await getTheme('light');
-
+      const fetchedTheme = await getTheme('dark');
       if (fetchedTheme) {
         setTheme(fetchedTheme.name);
         localStorage.setItem('theme', fetchedTheme.name);

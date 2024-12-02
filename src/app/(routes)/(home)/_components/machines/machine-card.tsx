@@ -14,8 +14,10 @@ import Image from 'next/image';
 
 import { Machine } from '@/types/machines';
 import { PricingMachine } from '@/types/pricing';
+import { Modal } from '../modal';
 
 interface MachineCardProps {
+  site: string;
   machine: Machine;
   selectedPlan: string;
   pricing: PricingMachine | undefined;
@@ -25,9 +27,11 @@ interface MachineCardProps {
   referrer: string;
   type: string;
   userTag: string;
+  planTitle: string;
 }
 
 export function MachineCard({
+  site,
   machine,
   selectedPlan,
   pricing,
@@ -37,6 +41,7 @@ export function MachineCard({
   referrer,
   type,
   userTag,
+  planTitle,
 }: MachineCardProps) {
   function formatCurrency(value: number) {
     return new Intl.NumberFormat('pt-BR', {
@@ -132,15 +137,12 @@ export function MachineCard({
               <p className="leading-[20px]">, {parcel.decimal}</p>
             </div>
           </div>
-
-          <a
-            rel="no-referrer-when-downgrade"
-            href={link}
-            className="cursor-pointer hover:bg-ton-300 transition-colors w-full text-center font-ton text-person-secondary py-3 my-4 rounded-full bg-ton-200 font-bold"
-          >
-            Pedir {machine.title}
-            <span className="font-normal"></span>
-          </a>
+          <Modal site={site} plan={planTitle} machine={machine.title}>
+            <div className="cursor-pointer hover:bg-ton-300 transition-colors w-full text-center font-ton text-person-secondary py-3 my-4 rounded-full bg-ton-200 font-bold">
+              Pedir {machine.title}{' '}
+              <span className="font-normal">{planTitle}</span>
+            </div>
+          </Modal>
         </div>
       </div>
 

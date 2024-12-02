@@ -8,6 +8,7 @@ import { Title } from '../title';
 import { MachineCard } from './machine-card';
 
 interface MachinesProps {
+  site: string;
   selectedPlan: string;
   day: string;
   machines: Machine[];
@@ -20,6 +21,7 @@ interface MachinesProps {
 }
 
 export function Machines({
+  site,
   selectedPlan,
   day,
   machines,
@@ -48,6 +50,7 @@ export function Machines({
             const userTag = plan.userTag;
             return (
               <MachineCard
+                site={site}
                 userTag={userTag}
                 type={type}
                 pricing={machinePricing}
@@ -57,6 +60,7 @@ export function Machines({
                 coupon={coupon}
                 percentCoupon={percentCoupon}
                 referrer={referrer}
+                planTitle={plan.title}
                 selectedPlan={selectedPlan}
               />
             );

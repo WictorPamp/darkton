@@ -8,6 +8,7 @@ import { Machines } from './machines';
 import { PricingLevel } from '@/types/pricing';
 
 interface ClientComponentProps {
+  site: string;
   plans: Plan[];
   machines: Machine[];
   pricing: PricingLevel[];
@@ -20,6 +21,7 @@ interface ClientComponentProps {
 }
 
 export function ClientComponent({
+  site,
   plans,
   machines,
   pricing,
@@ -44,6 +46,7 @@ export function ClientComponent({
       />
 
       <Machines
+        site={site}
         selectedPlan={selectedPlan}
         plan={plan}
         type={type}
