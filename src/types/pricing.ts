@@ -13,3 +13,17 @@ export interface PricingLevel {
 }
 
 export type Pricing = PricingLevel[];
+
+export interface RawPricingData {
+  plans: {
+    id: string;
+    name: string;
+    title: string;
+  };
+  machines: {
+    id: string;
+  };
+  current: number;
+  promotion: number;
+  parcel: number;
+}

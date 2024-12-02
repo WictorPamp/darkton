@@ -1,21 +1,13 @@
-import { QuestionType } from '@/types/questions';
+import { QuestionType, RawQuestionData } from '@/types/questions';
 import { fetchSupabase } from './fetch-supabase';
 
-function convertToQuestion(data: any): QuestionType | null {
-  if (
-    typeof data.id === 'string' &&
-    typeof data.id_site === 'string' &&
-    typeof data.question === 'string' &&
-    typeof data.answer === 'string'
-  ) {
-    return {
-      id: data.id,
-      id_site: data.id_site,
-      question: data.question,
-      answer: data.answer,
-    };
-  }
-  return null;
+function convertToQuestion(data: RawQuestionData): QuestionType {
+  return {
+    id: data.id,
+    id_site: data.id_site,
+    question: data.question,
+    answer: data.answer,
+  };
 }
 
 export async function getQuestions(site: string): Promise<QuestionType[]> {
@@ -27,7 +19,7 @@ export async function getQuestions(site: string): Promise<QuestionType[]> {
 
     if (Array.isArray(result)) {
       const validQuestions = result
-        .map((item: any) => convertToQuestion(item))
+        .map((item) => convertToQuestion(item as RawQuestionData))
         .filter((question): question is QuestionType => question !== null);
 
       return validQuestions;

@@ -1,4 +1,9 @@
-import { Pricing, PricingLevel, PricingMachine } from '@/types/pricing';
+import {
+  Pricing,
+  PricingLevel,
+  PricingMachine,
+  RawPricingData,
+} from '@/types/pricing';
 import { fetchSupabase } from './fetch-supabase';
 
 export async function getPrices(): Promise<Pricing> {
@@ -10,7 +15,7 @@ export async function getPrices(): Promise<Pricing> {
 
   const pricingMap: Record<string, PricingLevel> = {};
 
-  pricingData.forEach((price: any) => {
+  (pricingData as RawPricingData[]).forEach((price) => {
     const planKey = price.plans.id;
     const planName = price.plans.name;
     const planTitle = price.plans.title;

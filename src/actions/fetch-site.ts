@@ -21,7 +21,7 @@ export async function getSiteInfo(): Promise<Infos | null> {
     });
 
     if (site && site.length > 0) {
-      return site[0] as any;
+      return site[0] as Infos;
     } else {
       console.error('no Data found for the specified link.');
       return null;
