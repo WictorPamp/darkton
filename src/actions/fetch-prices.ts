@@ -1,9 +1,4 @@
-import {
-  Pricing,
-  PricingLevel,
-  PricingMachine,
-  RawPricingData,
-} from '@/types/pricing';
+import { Pricing, PricingLevel, RawPricingData } from '@/types/pricing';
 import { fetchSupabase } from './fetch-supabase';
 
 export async function getPrices(): Promise<Pricing> {

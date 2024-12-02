@@ -5,7 +5,7 @@ import { supabase } from '@/lib/client';
 interface FetchSupabaseProps {
   tableName: string;
   columns?: string | string[];
-  where?: Record<string, any>;
+  where?: Record<string, string>;
   relationships?: string;
 }
 

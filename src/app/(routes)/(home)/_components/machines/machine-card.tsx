@@ -22,9 +22,9 @@ interface MachineCardProps {
   selectedPlan: string;
   pricing: PricingMachine | undefined;
   day: string;
-  coupon: string;
+  coupon: string | null;
   percentCoupon: number;
-  referrer: string;
+  referrer: string | null;
   type: string;
   userTag: string;
   planTitle: string;
@@ -33,7 +33,6 @@ interface MachineCardProps {
 export function MachineCard({
   site,
   machine,
-  selectedPlan,
   pricing,
   day,
   coupon,
@@ -65,16 +64,6 @@ export function MachineCard({
   const parcel = customPrice(
     pricing ? pricing.parcel - pricing.parcel * (percentCoupon / 100) : 0,
   );
-
-  const link = `https://www.ton.com.br/checkout/cart/?${
-    type === 'referrer'
-      ? `referrer=${referrer}`
-      : type === 'link'
-      ? `coupon=${coupon}`
-      : ''
-  }&utm_medium=invite_share&utm_source=revendedor&userTag=${userTag}&productId=${`${userTag.toUpperCase()}_${
-    machine.id
-  }`}&userAnticipation=${day === 'sameDay' ? 0 : 1}`;
   return (
     <div className="text-ton-gray dark:text-person-secondary bg-white dark:bg-person-primary border border-gray-200 dark:border-person-quaternary p-4 rounded-lg shadow-lg my-4 lg:my-0 max-w-[308px]">
       <div className="flex items-end mr-4 ml-4 rounded rounded-b-none">

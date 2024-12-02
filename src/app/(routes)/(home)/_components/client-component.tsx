@@ -12,9 +12,9 @@ interface ClientComponentProps {
   plans: Plan[];
   machines: Machine[];
   pricing: PricingLevel[];
-  coupon: string;
+  coupon: string | null;
   percentCoupon: number;
-  referrer: string;
+  referrer: string | null;
   initialDay: string;
   initialSelectedPlan: string;
   type: string;

@@ -4,8 +4,8 @@ import Image from 'next/image';
 import banner from '@/app/assets/images/banner.webp';
 
 interface CoverProps {
-  referrer: boolean;
-  coupon: string;
+  referrer: string | null;
+  coupon: string | null;
 }
 
 export function Cover({ referrer, coupon }: CoverProps) {

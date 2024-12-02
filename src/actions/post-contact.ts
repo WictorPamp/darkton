@@ -12,7 +12,7 @@ interface Contact {
 
 export async function addContact(contact: Contact): Promise<void> {
   try {
-    const { data, error } = await supabase.from('contacts').insert([contact]);
+    const { error } = await supabase.from('contacts').insert([contact]);
 
     if (error) {
       alert('Houve um erro em nosso sistema, tente novamente mais tarde.');

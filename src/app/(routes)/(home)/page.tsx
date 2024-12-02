@@ -41,8 +41,16 @@ interface Infos {
 }
 
 export default async function HomePage() {
-  const infos: Infos | any = await getSiteInfo();
+  const infos = await getSiteInfo();
 
+  if (!infos) {
+    console.error(
+      'Site info is null. Cannot proceed with coupon and referrer logic.',
+    );
+    return; // Ou lance um erro, se preferir
+  }
+
+  // A partir deste ponto, o TypeScript sabe que 'infos' não é 'null'
   const coupon = infos.type === 'link' ? infos.cupon : null;
   const percentCoupon = infos.type === 'link' ? infos.percent_coupon : 0;
   const referrer = infos.type === 'referrer' ? infos.referrer : null;

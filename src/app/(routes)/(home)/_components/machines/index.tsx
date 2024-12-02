@@ -14,9 +14,9 @@ interface MachinesProps {
   day: string;
   machines: Machine[];
   pricing: Pricing;
-  coupon: string;
+  coupon: string | null;
   percentCoupon: number;
-  referrer: string;
+  referrer: string | null;
   type: string;
   plan: Plan;
 }

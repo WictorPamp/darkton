@@ -47,12 +47,12 @@ export function Calculator({ plans }: CalculatorProps) {
   }
 
   function calculateReceive(value: number, tax: number): number {
-    let discount = value * (tax / 100);
+    const discount = value * (tax / 100);
     return value - discount;
   }
 
   function calculateSave(value: number, tax: number): number {
-    let someTax =
+    const someTax =
       plan === 'tonPro'
         ? 0.4
         : plan === 'tonUltra'
@@ -61,9 +61,9 @@ export function Calculator({ plans }: CalculatorProps) {
         ? 1.52
         : 1.9;
 
-    let newTax = tax + someTax + sale / 100;
-    let discount = value * (newTax / 100);
-    let receive = value - discount;
+    const newTax = tax + someTax + sale / 100;
+    const discount = value * (newTax / 100);
+    const receive = value - discount;
     return calculateReceive(value, tax) - receive;
   }
 

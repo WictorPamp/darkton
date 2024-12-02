@@ -1,8 +1,8 @@
 import { Tag } from 'lucide-react';
 
 interface CouponBannerProps {
-  coupon: string;
-  percent: string;
+  coupon: string | null;
+  percent: number | 0;
 }
 
 export function CouponBanner({ coupon, percent }: CouponBannerProps) {

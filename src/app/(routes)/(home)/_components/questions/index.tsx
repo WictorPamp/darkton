@@ -1,5 +1,3 @@
-import { questions } from '@/mocks/questions';
-
 import { Title } from '../title';
 
 import { QuestionType } from '@/types/questions';
@@ -20,7 +18,7 @@ export function Questions({ questions }: QuestionsProps) {
           <Title>Ficou com alguma dúvida?</Title>
 
           <div className="w-full flex flex-col gap-4 md:gap-8 p-4 md:p-0">
-            {questions.map((question, index) => (
+            {questions.map((question) => (
               <Question
                 key={`question-${question.id}`}
                 question={question.question}

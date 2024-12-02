@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { getTheme } from '@/actions/fetch-themes';
 
 import { LaunchScreen } from '@/components/launch-screen';
-import { getSiteInfo } from '@/actions/fetch-site';
 
 interface ProvidersProps {
   children: React.ReactNode;
