@@ -16,3 +16,22 @@ export interface Machine {
   batery: boolean;
   touch: boolean;
 }
+
+export interface RawMachineData {
+  id: string;
+  id_ton: string;
+  title: string;
+  image: string;
+  assets: string[];
+  frete: boolean;
+  celNet: boolean;
+  nfc: boolean;
+  sms: boolean;
+  tapton: boolean;
+  TreeG: boolean;
+  FourG: boolean;
+  impresso: boolean;
+  pix: boolean;
+  batery: boolean;
+  touch: boolean;
+}

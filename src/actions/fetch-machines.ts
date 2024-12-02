@@ -1,7 +1,26 @@
 import { Machine } from '@/types/machines';
 import { fetchSupabase } from './fetch-supabase';
 
-function convertToMachine(data: any): Machine {
+interface RawMachineData {
+  id: string;
+  id_ton: string;
+  title: string;
+  image: string;
+  assets: string[];
+  frete: boolean;
+  celNet: boolean;
+  nfc: boolean;
+  sms: boolean;
+  tapton: boolean;
+  TreeG: boolean;
+  FourG: boolean;
+  impresso: boolean;
+  pix: boolean;
+  batery: boolean;
+  touch: boolean;
+}
+
+function convertToMachine(data: RawMachineData): Machine {
   return {
     key: data.id, // ou use data.id_ton se preferir
     id: data.id_ton,
@@ -24,13 +43,15 @@ function convertToMachine(data: any): Machine {
 
 export async function getMachines(): Promise<Machine[] | []> {
   try {
-    const machines = await fetchSupabase({
+    const result = await fetchSupabase({
       tableName: 'machines',
       // Adicione outras opções de consulta conforme necessário
     });
 
-    if (machines && Array.isArray(machines)) {
-      return machines.map((machine: any) => convertToMachine(machine));
+    if (result && Array.isArray(result)) {
+      // Asserção de tipo para informar ao TypeScript que os elementos são do tipo RawMachineData
+      const machines = result as RawMachineData[];
+      return machines.map((machine) => convertToMachine(machine));
     } else {
       console.error('No valid data found for machines.');
       return [];
