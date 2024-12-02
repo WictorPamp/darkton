@@ -35,6 +35,11 @@ export function ClientComponent({
   const [day, setDay] = useState<string>(initialDay);
   const [selectedPlan, setSelectedPlan] = useState<string>(initialSelectedPlan);
   const plan = plans.find((plan) => plan.key === selectedPlan);
+  if (!plan) {
+    // Lide com o caso em que o plano não é encontrado
+    console.error('Plano não encontrado');
+    return null; // ou qualquer outro valor de fallback apropriado
+  }
   return (
     <>
       <Plans

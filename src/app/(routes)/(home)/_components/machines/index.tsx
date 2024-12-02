@@ -6,6 +6,7 @@ import { Pricing } from '@/types/pricing';
 import { Title } from '../title';
 
 import { MachineCard } from './machine-card';
+import { Plan } from '@/types/plans';
 
 interface MachinesProps {
   site: string;
@@ -17,7 +18,7 @@ interface MachinesProps {
   percentCoupon: number;
   referrer: string;
   type: string;
-  plan: any;
+  plan: Plan;
 }
 
 export function Machines({
