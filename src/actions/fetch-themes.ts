@@ -13,8 +13,7 @@ export async function getTheme(name: string): Promise<Theme | null> {
         name: name,
       },
     });
-
-    if (themes.length > 0) {
+    if (themes) {
       const theme = themes[0];
       return theme;
     } else {

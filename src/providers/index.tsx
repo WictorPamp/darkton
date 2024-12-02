@@ -3,9 +3,8 @@
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 
-import { getTheme } from '../../api/core/actions/fetch-themes';
-
 import { LaunchScreen } from '@/components/launch-screen';
+import { getTheme } from '@/actions/fetch-themes';
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -14,7 +13,7 @@ export function Providers({ children }: ProvidersProps) {
   const [theme, setTheme] = useState<string | undefined>(undefined);
   useEffect(() => {
     const fetchTheme = async () => {
-      const fetchedTheme = await getTheme('dark');
+      const fetchedTheme = await getTheme('light');
       if (fetchedTheme) {
         setTheme(fetchedTheme.name);
         localStorage.setItem('theme', fetchedTheme.name);

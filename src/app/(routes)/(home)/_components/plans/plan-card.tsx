@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { cn } from '../../../../../../api/core/actions/lib/utils';
+import { cn } from '../../../../../lib/utils';
 
 import { Plan, PlanRates } from '@/types/plans';
 

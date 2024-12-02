@@ -1,4 +1,4 @@
-import { supabase } from './lib/client';
+import { supabase } from '../lib/client';
 
 interface Contact {
   site_id: string;

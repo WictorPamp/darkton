@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
-import { getMachines } from '../../../../api/core/actions/fetch-machines';
-import { getPlans } from '../../../../api/core/actions/fetch-plans';
-import { getPrices } from '../../../../api/core/actions/fetch-prices';
-import { getQuestions } from '../../../../api/core/actions/fetch-questions';
-import { getSiteInfo } from '../../../../api/core/actions/fetch-site';
+import { getMachines } from '../../../actions/fetch-machines';
+import { getPlans } from '../../../actions/fetch-plans';
+import { getPrices } from '../../../actions/fetch-prices';
+import { getQuestions } from '../../../actions/fetch-questions';
+import { getSiteInfo } from '../../../actions/fetch-site';
 
 import { calculator } from '@/mocks/calculator';
 
@@ -26,6 +26,7 @@ import { Different } from './_components/different';
 import { Flags } from './_components/flags';
 import { Footer } from './_components/footer';
 import { Questions } from './_components/questions';
+import { getTheme } from '@/actions/fetch-themes';
 
 export default async function HomePage() {
   const infos = await getSiteInfo();
@@ -42,7 +43,8 @@ export default async function HomePage() {
   const percentCoupon = infos.type === 'link' ? infos.percent_coupon : 0;
   const referrer = infos.type === 'referrer' ? infos.referrer : null;
   const tel = infos.telephone;
-
+  const themes = await getTheme('light');
+  console.log(themes);
   const plans: Plan[] = await getPlans();
 
   const machines: Machine[] = await getMachines();

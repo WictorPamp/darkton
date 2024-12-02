@@ -1,6 +1,6 @@
 'use server';
 
-import { supabase } from './lib/client';
+import { supabase } from '../lib/client';
 
 interface FetchSupabaseProps {
   tableName: string;
@@ -36,6 +36,6 @@ export async function fetchSupabase<T>({
   if (error) {
     throw new Error(`Error fetching data from ${tableName}: ${error.message}`);
   }
-
+  console.log({ tableName, data });
   return data as T[];
 }
