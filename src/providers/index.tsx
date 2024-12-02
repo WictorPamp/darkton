@@ -3,7 +3,7 @@
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 
-import { getTheme } from '@/actions/fetch-themes';
+import { getTheme } from '../../api/core/actions/fetch-themes';
 
 import { LaunchScreen } from '@/components/launch-screen';
 

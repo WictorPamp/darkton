@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
-import { getMachines } from '@/actions/fetch-machines';
-import { getPlans } from '@/actions/fetch-plans';
-import { getPrices } from '@/actions/fetch-prices';
-import { getQuestions } from '@/actions/fetch-questions';
-import { getSiteInfo } from '@/actions/fetch-site';
+import { getMachines } from '../../../../api/core/actions/fetch-machines';
+import { getPlans } from '../../../../api/core/actions/fetch-plans';
+import { getPrices } from '../../../../api/core/actions/fetch-prices';
+import { getQuestions } from '../../../../api/core/actions/fetch-questions';
+import { getSiteInfo } from '../../../../api/core/actions/fetch-site';
 
 import { calculator } from '@/mocks/calculator';
 

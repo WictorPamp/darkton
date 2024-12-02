@@ -1,6 +1,6 @@
 'use client';
 
-import { addContact } from '@/actions/post-contact';
+import { addContact } from '../../../../../api/core/actions/post-contact';
 import { X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';

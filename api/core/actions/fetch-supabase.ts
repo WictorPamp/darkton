@@ -1,6 +1,6 @@
 'use server';
 
-import { supabase } from '@/lib/client';
+import { supabase } from './lib/client';
 
 interface FetchSupabaseProps {
   tableName: string;
