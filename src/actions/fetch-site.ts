@@ -17,7 +17,7 @@ export async function getSiteInfo(): Promise<Infos | null> {
   try {
     const site = await fetchSupabase({
       tableName: 'sites',
-      where: { link: 'http://localhost:3000' },
+      where: { link: 'https://darkton.admanage.com.br' },
     });
 
     if (site && site.length > 0) {
